@@ -1,5 +1,6 @@
 import { User } from "../models/auth.model.js";
 import emailValidator from "email-validator";
+import bcrypt from 'bcrypt'
 
 
 const singup = async (req,res,next)=>{
@@ -62,7 +63,7 @@ const singin = async (req,res,next)=>{
     
         const user = await User.findOne({email}).select('+password')
     
-        if( !user || user.password !== password){
+        if( !user || !(await bcrypt.compare(password, user.password))){
             return res.status(400).json({
                 success: false,
                 message : "Invalid password"
