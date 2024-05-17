@@ -13,7 +13,7 @@ function ResetPassword() {
 
   const URL = process.env.REACT_APP_URL;
   async function handleResetPassword(e) {
-    e.preventDefault(); // event.preventDefault() method to prevent the default behavior of an HTML form submission
+    // e.preventDefault(); // event.preventDefault() method to prevent the default behavior of an HTML form submission
     setLoading(true);
     try {
       const response = await axios({

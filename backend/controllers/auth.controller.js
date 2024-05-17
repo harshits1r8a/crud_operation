@@ -4,11 +4,11 @@ import bcrypt from 'bcrypt'
 
 
 const singup = async (req,res,next)=>{
-    const { userName, email, password, confirmPassword } = req.body;
-    console.log(userName, email, password, confirmPassword);
+    const { name, email, password, confirmPassword } = req.body;
+    // console.log(name, email, password, confirmPassword);
 
     // express validation
-    if(!userName || !email || !password || !confirmPassword ){
+    if(!name || !email || !password || !confirmPassword ){
         return res.status(400).json({
             success:false,
             message:"Every feild is required!"
@@ -118,7 +118,7 @@ const logout =(req,res,next)=>{
         };
         res.cookie("token", null, cookieOption),
         res.status(200).json({
-            sucess : true,
+            success : true,
             message:"Logged out"
         })
     } catch (error) {

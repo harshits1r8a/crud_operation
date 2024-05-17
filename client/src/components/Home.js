@@ -20,7 +20,7 @@ function Home() {
       setLoading(false);
       const response = await axios({
         method: "get",
-        url: URL + "/api/auth/user",
+        url: URL + "/api/auth/getuser",
         withCredentials: true
       });
 
@@ -39,7 +39,7 @@ function Home() {
     try {
       const response = await axios({
         method: "get",
-        url: URL + "/api/auth/logout",
+        url: URL+"/api/auth/logout",
         withCredentials: true
       });
       if (response.data.success) {
